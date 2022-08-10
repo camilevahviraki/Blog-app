@@ -23,7 +23,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/camilevahviraki/School-Library. This project is intended to be a safe, welcoming space for collaboration, and contributors are welcome.
+Bug reports and pull requests are welcome on GitHub at https://github.com/camilevahviraki/Blog-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are welcome.
 Fill free to reach us or contact in the issue page.
 
 ## Show your support
