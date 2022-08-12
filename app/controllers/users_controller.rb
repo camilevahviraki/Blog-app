@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def last_3_post(int)
-    Post.where(author_id: int).last(3)
+  def last_3_post(author)
+    Post.where(author_id: author).last(3)
   end
 end
