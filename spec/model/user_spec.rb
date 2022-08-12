@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
     subject.Photo = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'Bio should be present' do
     subject.Bio = 'qwerty'
     expect(subject).to_not be_valid

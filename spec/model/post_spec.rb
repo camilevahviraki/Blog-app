@@ -14,7 +14,7 @@ RSpec.describe Post, type: :model do
     subject.Title = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'Author Id should be integer' do
     subject.author_id = '13'
     expect(subject).to_not be_valid

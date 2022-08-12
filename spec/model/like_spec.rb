@@ -4,7 +4,7 @@ RSpec.describe Like, type: :model do
   subject { Like.new(author_id: 1, posts_id: 2) }
 
   before { subject.save }
-  
+
   it 'Author Id should be integer' do
     subject.author_id = '1'
     expect(subject).to_not be_valid

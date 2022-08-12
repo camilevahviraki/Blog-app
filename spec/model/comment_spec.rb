@@ -9,7 +9,7 @@ RSpec.describe Comment, type: :model do
     subject.Text = nil
     expect(subject).to_not be_valid
   end
-  
+
   it 'Author Id should be integer' do
     subject.author_id = '1'
     expect(subject).to_not be_valid
