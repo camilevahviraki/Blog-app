@@ -28,8 +28,10 @@ test:
   encoding: unicode
   database: my_blog_test
   pool: 5
-  username: myapp
+  port: 5432
+  username: postgres
   password: password1
+  host: localhost
 
 production:
   adapter: postgresql
