@@ -14,11 +14,4 @@ RSpec.describe Like, type: :model do
     subject.posts_id = '7'
     expect(subject).to_not be_valid
   end
-
-  after { subject.save }
-
-  it 'has 1 liked at after #create' do
-   expect(Like.count).to eq(0)
- end
-
 end
