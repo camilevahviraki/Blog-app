@@ -1,0 +1,45 @@
+.user-container {
+  display: flex;
+  height: 200px;
+  width: 86%;
+  margin: 30px 7%;
+  position: relative;
+  align-items: center;
+}
+
+.user-image {
+  height: 100%;
+  width: auto;
+}
+
+.user-pic-container {
+  width: 200px;
+  height: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.76);
+  margin-right: 7%;
+}
+
+.user-name-container {
+  display: flex;
+  align-items: center;
+  width: calc(93% - 200px);
+  height: 82%;
+  border: 2px solid rgba(0, 0, 0, 0.835);
+}
+
+.user-name {
+  font-size: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(1, 26, 41);
+}
+
+.link-to-desc {
+  text-decoration: none;
+}
+
+.num-of-posts {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}

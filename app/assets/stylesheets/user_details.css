@@ -1,0 +1,41 @@
+.user-Bio {
+  width: 86%;
+  border: 2px solid rgba(0, 0, 0, 0.882);
+  margin: 30px 7%;
+}
+
+.post_container {
+  width: 86%;
+  margin: 30px 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_post {
+  width: 100%;
+  margin: 30px 0;
+  border: 2px solid black;
+  position: relative;
+}
+
+.see-all-posts {
+  color: black;
+  padding: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.809);
+  text-decoration: none;
+}
+
+.link_to_posts {
+  color: black;
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  width: 100%;
+}
+
+.likes_count {
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+}

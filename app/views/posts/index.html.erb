@@ -1,3 +1,33 @@
 <h2>
    Here show posts for a given user
 </h2>
+<div class="user-container">
+  <div class="user-pic-container"> 
+    <img src=@user.Photo class="user-image" />
+  </div>
+  <div class="user-name-container">
+    <p class="user-name"><%= @user.Name %></p>
+    <p class="num-of-posts">Number of posts: <%= @user.PostsCounter %></p>
+  </div>
+</div>
+
+<div class="all_posts_container">
+<% @posts_comments.each_with_index do |post, id| %>
+   <a href="posts/<%= post[:post].id %>" class="link_to_post_details">
+  <div class="post_comments">
+     <span>post<%=' #'%><%= id + 1 %></span>
+     <h4><%= post[:post].Title %></h4>
+     <p><%= post[:post].Text.split.slice(0, 255).join(' ') %>...</p>
+     <div class="likes_count">
+        <span>Comments:<%= post[:user_and_comnt].length%></span>
+        <span>Likes: <%= @likes %></span>
+      </div>
+  </div>
+  </a>
+  <div class="comments_list">
+    <% post[:user_and_comnt].each do |comment| %>
+      <p class="comment"><span><%=comment[:username] %>: </span><%=comment[:comment].Text %><p>
+    <% end %>
+  </div>
+<%end%> 
+</div>

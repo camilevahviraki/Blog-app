@@ -1,1 +1,28 @@
-<h2>Here is the details of given user</h2>
+<div class="user-container">
+  <div class="user-pic-container"> 
+    <img src=@user.Photo class="user-image" />
+  </div>
+  <div class="user-name-container">
+    <p class="user-name"><%= @user.Name %></p>
+    <p class="num-of-posts">Number of posts: <%= @user.PostsCounter %></p>
+  </div>
+</div>
+<div class="user-Bio">
+  <p><%= @user.Bio %></p>
+</div>
+<div class="post_container">
+  <% @last_posts.each_with_index do |post, id| %>
+    <a href="/users/<%=@user.id %>/posts/<%=post.id %>" class="link_to_posts">
+      <div class="user_post">
+        <p>Post<%= '# ' %> <%= id + 1%></p>
+        <h4><%= post.Title %></h4>
+        <p><%= post.Text %></p>
+        <div class="likes_count">
+          <span>Comments: 0</span>
+          <span>Likes: 0<%= post.LikesCounter %></span>
+        </div>
+      </div>
+    </a>
+  <% end %>
+  <%= link_to "See all posts", "/users/#{@user.id}/posts", class: "see-all-posts" %>
+<div>

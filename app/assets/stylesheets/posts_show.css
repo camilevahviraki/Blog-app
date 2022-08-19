@@ -1,0 +1,16 @@
+.post_comments {
+  position: relative;
+  min-height: 50px;
+}
+
+.likes-comments-count {
+  position: absolute;
+  top: 0;
+  right: 30px;
+}
+
+.comments-list {
+  width: 86%;
+  margin: 30px 0 100px 7%;
+  border: 2px solid rgba(0, 0, 0, 0.841);
+}

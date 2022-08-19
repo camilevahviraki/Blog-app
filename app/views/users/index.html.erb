@@ -1,4 +1,13 @@
-<%= yield %>
-<h2>
-Here the list of all users
-</h2>
+<% @users.each do |user| %>
+  <div class="user-container">
+    <div class="user-pic-container"> 
+      <%= link_to image_tag("#{user.Photo}", class: "user-image"), "/users/#{user.id}", class: "link-to-desc" %>
+    </div>
+    <div class="user-name-container">
+      <a href="/users/<%= user.id%>">
+        <p class="user-name"><%= user.Name %></p>
+      </a>
+      <p class="num-of-posts">Number of posts: <%= user.PostsCounter %></p>
+    </div>
+  </div>
+<%end%>
