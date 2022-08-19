@@ -1,1 +1,16 @@
 <h2>Here show a selected post for a given user</h2>
+<div class="post_comments">
+  <h3 class="user_name_post"><span>Post<%=' #'%>1</span> by <%=@user.Name %></h3>
+  <div class="likes-comments-count">
+    <p class="countsz">
+      Comments: <%= @users_and_comnts.length%>
+      Likes: <%= @likes%>
+    </p>
+  </div>
+  <p class="post_description"><%=@post.Text %></p>
+</div>
+<div class="comments-list">
+  <% @users_and_comnts.each do |comment|%>
+    <p><span><%=comment[:username] %></span>: <%=comment[:comment].Text%><p>
+  <% end %>
+</div>
