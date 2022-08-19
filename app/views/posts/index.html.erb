@@ -11,6 +11,18 @@
   </div>
 </div>
 
+<form action="/" method="post" data-remote="true">
+  <h4>Add a new post</h4>
+  <div>
+    <label >Title:</label>
+    <input type="text" id="tilte" name="post[Text]">
+  
+    <label >Text:</label>
+    <textarea name="post[Title]"></textarea>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+
 <div class="all_posts_container">
 <% @posts_comments.each_with_index do |post, id| %>
    <a href="posts/<%= post[:post].id %>" class="link_to_post_details">

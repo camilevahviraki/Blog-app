@@ -1,0 +1,26 @@
+<h2><%=current_user.Name %></h2>
+<h2>Add a new post</h2>
+
+<form action="/" method="post" data-remote="true">
+  <div>
+    <label >Title:</label>
+    <input type="text" id="tilte" name="post[Text]">
+  </div>
+  <div>
+    <label >Text:</label>
+    <textarea name="post[Title]"></textarea>
+  </div>
+  <input type="submit" value="Submit">
+</form>
+  
+<h2>Add a new comment</h2>
+<form action="/comments" method="post" data-remote="true">
+  <div>
+    <label >Text:</label>
+    <textarea name="comment[Title]"></textarea>
+  </div>
+  <input type="submit" value="Submit">
+</form>   
+
+
+  
