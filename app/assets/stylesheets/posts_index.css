@@ -1,0 +1,16 @@
+.post_comments {
+  width: 86%;
+  border: 1px solid rgb(7, 191, 71);
+  margin: 30px 0 0 7%;
+}
+
+.comments_list {
+  width: 86%;
+  border: 1px solid rgb(7, 191, 71);
+  margin: 3px 0 20px 7%;
+}
+
+.link_to_post_details {
+  text-decoration: none;
+  color: black;
+}
