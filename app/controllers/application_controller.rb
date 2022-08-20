@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @first_user= User.first
+    @first_user = User.first
   end
-
 end

@@ -12,4 +12,4 @@ class LoginController < ApplicationController
     post = Post.last
     Comment.create(Text: params[:comment][:Text], author_id: current_user.id, posts_id: post.id)
   end
-end    
+end
