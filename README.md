@@ -1,6 +1,6 @@
 # Blog App
 
-> This project is a simple blog app that allow user to SignUp, Login and Add Post
+> This project is a simple blog app that allow user to SignUp, Login and write some posts.
 
 ## Built With
 
