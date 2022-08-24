@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
-  belongs_to :user
-
+  belongs_to :user, class_name: 'User', foreign_key: 'author_id'
+  belongs_to :post, class_name: 'Post', foreign_key: 'posts_id'
   def update_like_counter
     all_posts = Post.all
     all_posts.each do |post|
