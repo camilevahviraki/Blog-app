@@ -1,10 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: 'author_id'
   has_many :comments
-  validates :Title, presence: true
-  validates :Title, length: { maximum: 250 }
-  validates :LikesCounter, numericality: true
-  validates :LikesCounter, comparison: { greater_than_or_equal_to: 0 }
+  # validates :Title, presence: true
+  # validates :Title, length: { maximum: 250 }
+  # validates :LikesCounter, numericality: true
+  # validates :LikesCounter, comparison: { greater_than_or_equal_to: 0 }
 
   def update_posts_count
     @users = User.all

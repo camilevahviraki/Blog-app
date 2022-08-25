@@ -1,0 +1,13 @@
+<h2>Add a new post</h2>
+
+<form action="/users/#{params[:user_id]}/posts" method="post" data-remote="true">
+  <div>
+    <label >Title:</label>
+    <input type="text" id="tilte" name="post[Text]">
+  </div>
+  <div>
+    <label >Text:</label>
+    <textarea name="post[Title]"></textarea>
+  </div>
+  <input type="submit" value="Submit">
+</form>
