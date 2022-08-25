@@ -15,4 +15,6 @@
  *= require 'user_details'
  *= require 'posts_index'
  *= require 'posts_show'
+ *= require 'login'
+ *= require 'signup'
  */
