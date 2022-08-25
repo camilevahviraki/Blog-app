@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: params[:user_id])
     @posts_comments = []
+    Post.includes(:posts)
     @posts.each_with_index do |post, id|
       comments = Comment.where(posts_id: post.id)
       @likes = Like.where(posts_id: params[post.id]).length

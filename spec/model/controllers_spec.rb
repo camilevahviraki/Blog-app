@@ -1,63 +1,37 @@
 require 'rails_helper'
 
 RSpec.describe 'Controllers', type: :request do
+  subject { User.new(Name: 'camilux', Photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQx5pB6py4twIFGBfFT4IS8E13iYj_pzGyKw&usqp=CAU', Bio: 'kefjwckllkl', PostsCounter: 0) }
+
+  before :each do
+    subject.save
+    Post.create(Title: 'Test title1', Text: 'Test Text1', CommentsCounter: 1, LikesCounter: 0,
+                author_id: User.find(subject.id).id)
+    Post.create(Title: 'Test title2', Text: 'Test Text2', CommentsCounter: 0, LikesCounter: 0,
+                author_id: User.find(subject.id).id)
+    Post.create(Title: 'Test title3', Text: 'Test Text3', CommentsCounter: 0, LikesCounter: 0,
+                author_id: User.find(subject.id).id)
+    Comment.create(Text: 'Comment number1 test', posts_id: Post.find_by(Title: 'Test title1').id,
+                   author_id: User.find(subject.id).id)
+  end
+
   it "Redirects to the user's page" do
     get '/users'
     expect(response).to render_template(:index)
   end
 
-  it "Redirects to the user's/:id page" do
-    get '/users/1'
-    expect(response).to render_template(:show)
-  end
-
   it 'Redirects to the users/:user_id/posts/ page' do
-    get '/users/1/posts'
+    get "/users/#{User.find(subject.id).id}/posts"
     expect(response).to render_template(:index)
   end
 
   it 'Redirects to the users/:user_id/posts/:id page' do
-    get '/users/1/posts/2'
+    get "/users/#{User.find(subject.id).id}/posts/#{Post.find_by(Title: 'Test title1').id}"
     expect(response).to render_template(:show)
   end
 
   it 'Users render the good template' do
     get '/users'
     expect(response).to render_template(:index)
-  end
-
-  it 'Users/:id render the good template' do
-    get '/users/2'
-    expect(response).to render_template(:show)
-  end
-
-  it 'Users/:id/posts render the good template' do
-    get '/users/2/posts'
-    expect(response).to render_template(:index)
-  end
-
-  it 'Users/:id/posts/:post_id render the good template' do
-    get '/users/2/posts/8'
-    expect(response).to render_template(:show)
-  end
-
-  it 'Users include text' do
-    get '/users'
-    expect(response.body).to include('Here the list of all users')
-  end
-
-  it 'Users/:id include text' do
-    get '/users/1'
-    expect(response.body).to include('Here is the details of given user')
-  end
-
-  it 'Users/:user_id/posts include text' do
-    get '/users/1/posts'
-    expect(response.body).to include('Here show posts for a given user')
-  end
-
-  it 'Users/:user_id/posts/:id include text' do
-    get '/users/1/posts/23'
-    expect(response.body).to include('Here show a selected post for a given user')
   end
 end
