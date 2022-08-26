@@ -10,8 +10,8 @@ class PostsController < ApplicationController
       @likes = Like.where(posts_id: params[post.id]).length
       users_and_comnts = []
       comments.each do |comment|
-        user = User.where(id: comment.author_id)[id].Name
-        users_and_comnts << { username: user, comment: }
+        @userd = User.where(id: comment.author_id)[id].Name if User.where(id: comment.author_id)[id]
+        users_and_comnts << { username: @userd, comment: }
       end
       @posts_comments << { post:, user_and_comnt: users_and_comnts }
     end

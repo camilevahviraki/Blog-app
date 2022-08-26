@@ -5,9 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to("/users/#{params[:user_id]}/posts/#{params[:post_id]}", notice: 'Comment Successfully created.')
-    end
+    redirect_to("/users/#{params[:user_id]}/posts/#{params[:post_id]}", notice: 'Comment created.') if @comment.save
   end
 
   def comment_params
