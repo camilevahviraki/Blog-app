@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     Post.new.update_posts_count
     @user = User.find(params[:user_id])
@@ -32,20 +31,16 @@ class PostsController < ApplicationController
     end
   end
 
-    def new
-       @post = Post.new
-    end
+  def new
+    @post = Post.new
+  end
 
+  def create
+    @post = Post.new(post_params)
+    redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully created.') if @post.save
+  end
 
-   def create
-     @post = Post.new(post_params)
-      if @post.save 
-      redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully created.')
-     end
-    end
-
-    def post_params 
-      params.require(:post).permit(:Title, :Text, :author_id)
-    end
-
+  def post_params
+    params.require(:post).permit(:Title, :Text, :author_id)
+  end
 end
