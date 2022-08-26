@@ -40,6 +40,13 @@ class PostsController < ApplicationController
     redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully created.') if @post.save
   end
 
+  def destroy
+    comments = Comment.where(posts_id: params[:id])
+    comments.delete_all
+    @post = Post.find(params[:id])
+    redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully deleted.') if @post.destroy
+  end
+
   def post_params
     params.require(:post).permit(:Title, :Text, :author_id)
   end
