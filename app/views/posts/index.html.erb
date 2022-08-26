@@ -10,15 +10,18 @@
 
 <div class="all_posts_container">
 <% @posts_comments.each_with_index do |post, id| %>
-   <a href="posts/<%= post[:post].id %>" class="link_to_post_details">
+   <a href="/users/<%=params[:user_id] %>/posts/<%= post[:post].id %>" class="link_to_post_details">
   <div class="post_comments">
      <span>post<%=' #'%><%= id + 1 %></span>
      <h4><%= post[:post].Title %></h4>
      <p><%= post[:post].Text.split.slice(0, 255).join(' ') %>...</p>
      <div class="likes_count">
-        <span>Comments:<%= post[:user_and_comnt].length%></span>
+        <span>Comments:<%= post[:post].CommentsCounter%></span>
         <span>Likes: <%= @likes %></span>
       </div>
+      <% if can? :manage , post[:post] %>
+        <button class="Delete-button">Delete</button>
+      <% end %>
   </div>
   </a>
   <div class="comments_list">

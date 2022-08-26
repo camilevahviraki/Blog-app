@@ -18,9 +18,13 @@
         <h4><%= post.Title %></h4>
         <p><%= post.Text %></p>
         <div class="likes_count">
-          <span>Comments: 0</span>
-          <span>Likes: 0<%= post.LikesCounter %></span>
+          <span>Comments: <%= post.CommentsCounter%></span>
+          <span>Likes: <%= post.LikesCounter %></span>
         </div>
+        
+        <% if can? :manage , post %>
+          <%= button_to "Delete", "/users/#{params[:user_id]}/posts/#{params[:id]}", method: :delete, class: 'Delete-button'  %>
+        <% end %>
       </div>
     </a>
   <% end %>
