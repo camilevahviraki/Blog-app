@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  root "login#index"
-  post "/", to: "login#posts"
-  post "/comments", to: "login#comments"
-  get "/users", to: "users#index"
-  get 'users/:user_id/posts', to: 'posts#index'
-  get 'users/:user_id/posts/:id', to: 'posts#show'
-  get 'users/:id', to: 'users#show'
+  devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'users#index', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
+  resources :users, only: %i[index show] do
+    resources :posts, only: %i[index show new create] do
+      resources :comments, only: %i[new create]
+      resources :likes, only: %i[create]
+    end
+  end
 end

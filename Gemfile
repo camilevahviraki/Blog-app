@@ -9,6 +9,8 @@ gem 'pg'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
+gem 'cancancan'
+
 gem 'devise'
 
 gem 'rails-controller-testing'
