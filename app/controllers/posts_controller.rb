@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
 
-  # load_and_authorize_resource
-
   def index
+    Post.new.update_posts_count
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: params[:user_id])
     @posts_comments = []
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    Post.new.update_posts_count
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
     @likes = Like.where(posts_id: params[:id]).length
@@ -32,12 +32,20 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    if params[:post]
-    @post = Post.new(Title: params[:post][:Title], Text: params[:post][:Text], CommentsCounter: 0, LikesCounter: 0)
-    @post.save ? redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully created.'): ''
+    def new
+       @post = Post.new
     end
-    
-  end
+
+
+   def create
+     @post = Post.new(post_params)
+      if @post.save 
+      redirect_to("/users/#{params[:user_id]}/posts", notice: 'Post was successfully created.')
+     end
+    end
+
+    def post_params 
+      params.require(:post).permit(:Title, :Text, :author_id)
+    end
 
 end

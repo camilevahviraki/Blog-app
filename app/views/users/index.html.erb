@@ -1,8 +1,10 @@
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+<%= button_to "logout", destroy_user_session_path, method: :delete, class: 'logout'  %>
+<a href="<%=new_user_post_path(current_user.id)%>" class="new-comment">
+  Add a new post
+</a>
 <% @users.each do |user| %>
   <div class="user-container">
     <div class="user-pic-container"> 
-      
       <a href="/users/<%= user.id%>" class="link-to-desc">
          <img src=<%=user.Photo %> class: "user-image"/>
       </a>

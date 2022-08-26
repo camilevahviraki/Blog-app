@@ -1,4 +1,3 @@
-<h2>Here show a selected post for a given user</h2>
 <div class="post_comments">
   <h3 class="user_name_post"><span>Post<%=' #'%>1</span> by <%=@user.Name %></h3>
   <div class="likes-comments-count">
@@ -9,6 +8,9 @@
   </div>
   <p class="post_description"><%=@post.Text %></p>
 </div>
+<a href="<%=new_user_post_comment_path(params[:user_id], params[:id])%>" class="new-comment">
+  Leave a comment
+</a>
 <div class="comments-list">
   <% @users_and_comnts.each do |comment|%>
     <p><span><%=comment[:username] %></span>: <%=comment[:comment].Text%><p>

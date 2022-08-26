@@ -1,6 +1,7 @@
 <h2>Add a new post</h2>
 
-<form action="/users/#{params[:user_id]}/posts" method="post" data-remote="true">
+<form action="/users/<%=current_user.id%>/posts" method="post" data-remote="true">
+    <input type="hidden" name="post[author_id]" value="<%=current_user.id%>" />
   <div>
     <label >Title:</label>
     <input type="text" id="tilte" name="post[Text]">

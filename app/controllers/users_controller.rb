@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def index
+    Post.new.update_posts_count
     @users = User.all
   end
 
   def show
+    Post.new.update_posts_count
     likes = Like.new
     likes.update_like_counter
     @user = User.find(params[:id])

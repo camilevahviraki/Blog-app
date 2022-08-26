@@ -1,0 +1,10 @@
+<h2>Comment on <%=current_user.Name %>'s post</h2>
+
+<form action="/users/<%=current_user.id%>/posts/<%=params[:post_id] %>/comments" method="post" data-remote="true">
+    <input type="hidden" name="comment[author_id]" value="<%=current_user.id%>" />
+    <input type="hidden" name="comment[posts_id]" value="<%=params[:post_id]%>" />
+  <div>
+    <textarea name="comment[Text]" placeholder="Enter a text"></textarea>
+  </div>
+  <input type="submit" value="Comment">
+</form>

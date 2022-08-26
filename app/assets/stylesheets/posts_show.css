@@ -1,6 +1,7 @@
 .post_comments {
   position: relative;
   min-height: 50px;
+  margin-bottom: 20px;
 }
 
 .likes-comments-count {
@@ -13,4 +14,22 @@
   width: 86%;
   margin: 30px 0 100px 7%;
   border: 2px solid rgba(0, 0, 0, 0.841);
+}
+
+.new-comment {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(0, 48, 63);
+  padding: 10px 8px;
+  border-radius: 3px;
+  margin-left: 7%;
+}
+
+.logout {
+  position: absolute;
+  right: 7%;
+  top: 10px;
+  background-color: #21110196;
+  padding: 10px;
+  color: white;
 }
