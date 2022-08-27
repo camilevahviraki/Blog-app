@@ -7,12 +7,24 @@
     </p>
   </div>
   <p class="post_description"><%=@post.Text %></p>
-</div>
+ 
+  <% if can? :manage , @post %>
+    <%= button_to "Delete", "/users/#{params[:user_id]}/posts/#{params[:id]}", method: :delete, class: 'Delete-button'  %>
+  <% end %>
+
+  </div>
 <a href="<%=new_user_post_comment_path(params[:user_id], params[:id])%>" class="new-comment">
   Leave a comment
 </a>
 <div class="comments-list">
   <% @users_and_comnts.each do |comment|%>
-    <p><span><%=comment[:username] %></span>: <%=comment[:comment].Text%><p>
+    
+    <div class="comment-wrap"> 
+      <p><span><%=comment[:username] %></span>: <%=comment[:comment].Text%><p>
+      <% if can? :manage , comment[:comment] %>
+        <%= button_to "Delete", user_post_comment_path(params[:user_id], params[:id], comment[:comment].id), method: :delete, class: 'Delete-comment'  %>
+      <% end %>
+    </div>
+    
   <% end %>
 </div>

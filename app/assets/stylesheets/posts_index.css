@@ -14,3 +14,63 @@
   text-decoration: none;
   color: black;
 }
+
+.form-delete {
+  position: absolute;
+  right: 40px;
+  bottom: 60px;
+}
+
+.show {
+  bottom: 20px;
+}
+
+.form-delete input {
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  background-color: rgba(1, 38, 53, 0.854);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 3px;
+}
+
+.comment-wrap {
+  display: flex;
+  position: relative;
+  border: 1px solid;
+}
+
+.comment-wrap button {
+  padding: 4px 12px;
+  position: absolute;
+  right: 10%;
+  border: none;
+  color: white;
+  background-color: rgba(2, 39, 44, 0.757);
+  bottom: 5px;
+}
+
+.Delete-button {
+  padding: 4px 12px;
+  position: absolute;
+  right: 5%;
+  border: none;
+  color: white;
+  background-color: rgba(2, 44, 35, 0.757);
+  bottom: 50px;
+}
+
+.button_to .Delete-button {
+  bottom: 30px;
+}
+
+.Delete-comment {
+  padding: 4px 12px;
+  position: absolute;
+  right: 5%;
+  border: none;
+  color: white;
+  background-color: rgba(2, 44, 35, 0.757);
+  bottom: 50px;
+}
