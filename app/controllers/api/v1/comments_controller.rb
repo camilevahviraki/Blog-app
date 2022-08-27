@@ -12,7 +12,7 @@ class Api::V1::CommentsController < ApplicationController
         render :json => ["An error occured, Please send your params in this form =>" => {
             comment: { Text:, Title:, author_id:, post_id: }
           } 
-        ]
+        ], status: 400
       end     
   end
 
