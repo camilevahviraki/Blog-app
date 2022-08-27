@@ -1,11 +1,10 @@
 class Api::V1::PostsController < ApplicationController
-
   def index
     authentication_token = params[:authentication_token]
     return unless check_user_token(authentication_token) && check_post_params
 
     @posts = Post.where(author_id: params[:user_id])
-    render :json => @posts
+    render json: @posts
   end
 
   def show
@@ -13,7 +12,7 @@ class Api::V1::PostsController < ApplicationController
     return unless check_user_token(authentication_token) && check_post_params
 
     @comments = Comment.where(posts_id: params[:id])
-    render :json => @comments
+    render json: @comments
   end
 
   def check_user_token(authentication_token)
@@ -39,5 +38,4 @@ class Api::V1::PostsController < ApplicationController
     @current_user = user
     true
   end
-
-end    
+end

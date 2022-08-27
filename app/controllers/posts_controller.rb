@@ -15,13 +15,12 @@ class PostsController < ApplicationController
       end
       @posts_comments << { post:, user_and_comnt: users_and_comnts }
     end
-    
+
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @posts }
-      format.json { render :json => @posts }
+      format.xml { render xml: @posts }
+      format.json { render json: @posts }
     end
-
   end
 
   def show
@@ -39,10 +38,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => comments }
-      format.json { render :json => comments }
+      format.xml { render xml: comments }
+      format.json { render json: comments }
     end
-
   end
 
   def new
